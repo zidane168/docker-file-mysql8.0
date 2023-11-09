@@ -1,0 +1,17 @@
+version: "3"
+services:
+  mysql:
+    networks:
+      - vi-web
+    container_name: mysql-8.0
+    restart: always
+    volumes:
+      - "./data:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3307:3306"
+    image: "mysql:8.0"
+networks:
+  vi-web:
+    external: true
